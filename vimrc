@@ -1,3 +1,10 @@
+set nocompatible
+filetype on
+filetype indent on
+filetype plugin on
+filetype plugin indent on
+
+set encoding=utf-8
 " 设置语法高亮
 syntax on
 " 设置显示行号
@@ -36,12 +43,17 @@ set scrolloff=5
 "设置一个匹配规则
 map <LEADER><LEADER> <Esc>/<++><CR>:nohlsearch<CR>c4l
 
-
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
 call plug#begin('~/.vim/plugged')
 
 Plug 'vim-airline/vim-airline'
 Plug 'connorholyday/vim-snazzy'
+" File Navigation
+Plug 'preservim/nerdtree'
+
+" Auto Complete
+Plug 'neoclide/coc.nvim', {'branch':'release'}
 call plug#end()
 
 colorscheme snazzy
