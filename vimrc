@@ -34,8 +34,12 @@ set ignorecase
 set smartcase
 
 let &t_ut=''
-
-set mouse=a
+"cindent
+set cindent
+set autoindent
+set smartindent
+set shiftwidth=4
+"set mouse=a
 "设置Tap键
 set expandtab
 set tabstop=4
@@ -94,6 +98,12 @@ nmap <leader>f  <Plug>(coc-format-selected)
 " this can help you get your cursor in where you last out
 au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
 
+"coc.nvim
+
+let g:coc_globle_extensions = ['coc-json','coc-vimlsp']
+
+
+
 " Plugin What you want
 call plug#begin('~/.vim/plugged')
 
@@ -104,6 +114,7 @@ Plug 'preservim/nerdtree'
 
 " Auto Complete
 Plug 'neoclide/coc.nvim', {'branch':'release'}
+Plug 'jiangmiao/auto-pairs'
 call plug#end()
 
 colorscheme snazzy
